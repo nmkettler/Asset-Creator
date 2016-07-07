@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html ng-app="assetApp">
+    
+<head>
+  <meta charset="UTF-8">
+  <title>Asset Creator</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/theme.min.css" />
+
+  <link rel="stylesheet" href="css/style.css">
+
+    <!-- Jquery --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <!-- Angular --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>    
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script src="js/app.js"></script>
+
+
+</head>
+<body>
+  <!--
+  <div class="titleContainer">
+    <h1 class="text-center">Hero Slide Creator</h1>
+  </div>
+  -->
+
+  <div class="main-container" ng-controller="MainController">
+      <div class="row">
+        <div class="col-md-2 vehicle-slide-create">
+          <form>
+            <h3 class="text-center vehicleSlideFormTitle">Custom Slide</h3>
+            <div class="form-group">
+              <select class="center-block" id="brandDrag" ng-model = "vehicle_type" ng-options="o as o for o in type_options"> <!--cycle through brand options array-->               
+              </select>
+              <select class="center-block" ng-model = "vehicle_make" ng-options="o as o for o in make_options"> <!--cycle through brand options array-->
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="center-block" ng-model = "vehicle_model" ng-options="o as o for o in model_options"> <!--cycle through trim options array-->
+              </select>
+              <select class="center-block" ng-model = "vehicle_trim" ng-options="o as o for o in trim_options"> <!--cycle through trim options array-->
+              </select>
+            </div>
+          </form>
+
+          <h3 class="text-center vehicleSlideFormTitle">Pre-Made Background Slide</h3>
+            <div class="form-group">
+              <select class="center-block" ng-model = "premade_make_bg_mod" ng-options="o as o for o in premade_make_options"> <!--cycle through make options array-->
+              </select>
+            </div>
+          </form>
+        </div> <!-- col-md-2 -->
+        <div class="col-md-8">
+          <div id="large-hero">
+                <div ng-if="vehicle_type == 'Car'">
+                  <div class="draggableDiv" ng-repeat="vehicleselection in vehicleselections[0].all_gm_cars">                   
+                      <img class="draggableImg" ng-src="{{ vehicleselection.image }}"/>
+                  </div> <!--Display Cars--> 
+                </div><!--Vehicle_Type dropdown show/hide -->  
+                <div ng-if="vehicle_type == 'SUV'">
+                  <div class="draggableDiv" ng-repeat="vehicleselection in vehicleselections[0].all_gm_suvs">
+                    <img class="draggableImg" ng-src="{{ vehicleselection.image }}"/>
+                  </div> <!--Display SUVs--> 
+                </div><!--Vehicle_Type dropdown show/hide -->       
+                <div ng-if="vehicle_type == 'Truck'">
+                  <div class="draggableDiv" ng-repeat="vehicleselection in vehicleselections[0].all_gm_trucks">
+                    <img class="draggableImg" ng-src="{{ vehicleselection.image }}"/>
+                  </div> <!--Display Trucks--> 
+                </div><!--Vehicle_Type dropdown show/hide -->
+
+                <div ng-if="vehicle_make == 'Chevrolet'">
+                  <div ng-repeat="vehicleselection in vehicleselections[0].chevrolet_data">
+                    <img  ng-src="{{ vehicleselection.chvimage }}"/>
+                  </div> <!--Display Chevys--> 
+                </div><!--Vehicle_Make dropdown show/hide -->  
+                <div ng-if="vehicle_make == 'Buick'">
+                  <div ng-repeat="vehicleselection in vehicleselections[0].buick_data">
+                    <img ng-src="{{ vehicleselection.bimage }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make dropdown show/hide -->    
+                <div ng-if="vehicle_make == 'GMC'">
+                  <div ng-repeat="vehicleselection in vehicleselections[0].gmc_data">
+                    <img ng-src="{{ vehicleselection.image }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make dropdown show/hide -->       
+
+                <div ng-if="premade_make_bg_mod == 'Chevrolet'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].chevrolet_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.cruzechvimage }}"/>
+                  </div> <!--Display Chev--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_make_bg_mod == 'GMC'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].gmc_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.gmcimg }}"/>
+                  </div> <!--Display GMC--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->    
+                <div ng-if="premade_make_bg_mod == 'Buick'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].buick_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.buickimg }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->    
+          </div> <!-- large-hero -->     
+        </div>
+        <div class="col-md-2 vehicle-slide-create text-size-buttons">
+          <input type="button"  ng-click="show60options=true" id="addTextBoxButton60" value="60px Text">
+            <div  ng-model="color" ng-show="show60options">
+              <input id="60pxTxt" type="text" font-color="color">
+            </div>     
+            <select id="selectColor60px" ng-show="show60options" ng-model="selectedColor">
+              <option value="">--Select Color--</option>
+              <option value="#000000">Black</option>
+              <option value="#ffffff">White</option>
+              <option value="#123456">Dark Blue</option>
+            </select>
+          <input type="button" ng-click="show36options=true" id="addTextBoxButton36" value="36px Text">
+            <select id="selectColor36px" ng-show="show36options">
+              <option value="">--Select Color--</option>
+              <option value="#000000">Black</option>
+              <option value="#ffffff">White</option>
+              <option value="#123456">Dark Blue</option>
+            </select>        
+          <input type="button" ng-click="show24options=true" id="addTextBoxButton24" value="24px Text">
+            <select ng-show="show24options">
+              <option>Select Color</option>
+            </select> 
+          <input type="button" ng-click="show14options=true" id="addTextBoxButton14" value="14px Text">
+            <select ng-show="show14options">
+              <option>Select Color</option>
+            </select> 
+          <input type="button" ng-click="show12options=true" id="addTextBoxButton12" value="12px Text">
+            <select ng-show="show12options">
+              <option>Select Color</option>
+            </select> 
+        </div> <!-- col-md-1 -->
+      </div> <!-- row -->
+  </div> <!-- Main Controller -->
+</body>
+</html>

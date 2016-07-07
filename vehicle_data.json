@@ -1,0 +1,41 @@
+[
+	{
+		"all_gm_cars" :[
+			{"abbreviation" : "BUI", "image" : "css/images/Vehicle_Images/MalibuLimited.png" }
+		],
+		"all_gm_suvs" :[
+			{"abbreviation" : "BUI", "image" : "css/images/Vehicle_Images/Encore.png" },		
+			{"abbreviation" : "CHV", "image" : "css/images/Vehicle_Images/2015-Yukon.png" },
+			{"abbreviation" : "BUI", "image" : "css/images/Vehicle_Images/Terrain.png" }
+		],
+		"all_gm_trucks" :[
+			{"abbreviation" : "BUI", "image" : "css/images/Vehicle_Images/Sierra2500HD.png" },
+			{"abbreviation" : "BUI", "image" : "css/images/Vehicle_Images/Terrain.png" }
+		],
+		"buick_data" :[
+			
+			{"abbreviation" : "BUI", "bimage" : "css/images/Vehicle_Images/Encore.png" },
+			{"abbreviation" : "BUI", "bimage" : "css/images/Vehicle_Images/Encore.png" }
+		],
+		"chevrolet_data" :[
+			{"abbreviation" : "CHV", "chvimage" : "css/images/Vehicle_Images/2015-Yukon.png" },			
+			{"abbreviation" : "CHV", "chvimage" : "css/images/Vehicle_Images/MalibuLimited.png" }			
+		],
+		"gmc_data" :[
+			{"abbreviation" : "GMC", "image" : "css/images/Vehicle_Images/Terrain.png" },			
+			{"abbreviation" : "GMC", "image" : "css/images/Vehicle_Images/Sierra2500HD.png" }			
+		]
+		
+	},
+	{
+		"chevrolet_pre_made_bg" :[
+			{"abbreviation" : "CHVBG", "cruzechvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/CruzeBG.png"}
+		],
+		"gmc_pre_made_bg" :[
+			{"abbreviation" : "GMC", "gmcimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/YukonXLDenaliBG.png"}
+		],
+		"buick_pre_made_bg" :[
+			{"abbreviation" : "BUI", "buickimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/BuickEnvisionBG.png"}
+		]
+	}
+]
