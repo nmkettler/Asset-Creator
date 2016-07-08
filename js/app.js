@@ -59,19 +59,18 @@ window.onload = function(){
 	var twelvecount = 1;
 
 	document.getElementById('addTextBoxButton60').onclick = function() {
-		var div = document.getElementById("large-hero");
+		var div = document.getElementById("60textDrag");
 		var input = document.createElement("input");
 
 		input.type= "text";
 		input.style.fontSize = "60px";
 		input.id="addTextBoxInputId60";
 		input.name="addTextBoxInputName60" + (sixtycount++);
-		div.appendChild(document.createElement("br"));
 		div.appendChild(input);
 	};
 
 	document.getElementById('addTextBoxButton36').onclick = function() {
-		var div = document.getElementById("large-hero");
+		var div = document.getElementById("36textDrag");
 		var input = document.createElement("input");
 
 		input.type= "text";
@@ -83,7 +82,7 @@ window.onload = function(){
 	};
 
 	document.getElementById('addTextBoxButton24').onclick = function() {
-		var div = document.getElementById("large-hero");
+		var div = document.getElementById("24textDrag");
 		var input = document.createElement("input");
 
 		input.type= "text";
@@ -95,7 +94,7 @@ window.onload = function(){
 	};
 
 	document.getElementById('addTextBoxButton14').onclick = function() {
-		var div = document.getElementById("large-hero");
+		var div = document.getElementById("14textDrag");
 		var input = document.createElement("input");
 
 		input.type= "text";
@@ -106,7 +105,7 @@ window.onload = function(){
 		div.appendChild(input);
 	};
 	document.getElementById('addTextBoxButton12').onclick = function() {
-		var div = document.getElementById("large-hero");
+		var div = document.getElementById("12textDrag");
 		var input = document.createElement("input");
 
 		input.type= "text";
@@ -132,18 +131,26 @@ $(document).ready(function() {
 		$('#addTextBoxInputId36').css('color', $(this).val());
 	});
 
-	$(function(){
-		$("#addTextBoxInputId60").draggable();
-	});
-
-	$('#brandDrag').change(function(){
-		$(".draggableImg").resizable({
+	$(function textUi(){
+		$("#60textDrag, #36textDrag, #24textDrag, #14textDrag, #12textDrag").draggable();
+		$("#60textDrag, #36textDrag, #24textDrag, #14textDrag, #12textDrag").resizable({
           containment: "#large-hero",
           start: function(event, ui) { //Other images/divs when resized do not affect overall flow
             ui.element.css('position', 'absolute');
           }
-        });
-		$(".draggableDiv").draggable();
+        });       
 	});
-	
+
+	$(function vehicleImgUi(){
+		$('#brandDrag').change(function(){
+			$(".draggableImg").resizable({
+	          containment: "#large-hero",
+	          start: function(event, ui) { //Other images/divs when resized do not affect overall flow
+	            ui.element.css('position', 'absolute');
+	          }
+	        });
+			$(".draggableDiv").draggable();
+		});
+	});
+
 });
