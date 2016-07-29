@@ -25,30 +25,36 @@
       <div class="row">
         <div class="col-md-2">
           <div class="vehicle-slide-create">
-            <form>
-              <h3 class="text-center vehicleSlideFormTitle">Pre-Made Background Slide</h3>
-              <div class="form-group">
-                <select class="center-block" ng-model = "premade_vehicle_make" ng-options="o as o for o in premade_make_options"> <!--cycle through make options array-->
-                </select>
-              </div>   
-              <h3 class="text-center vehicleSlideFormTitle">Custom Slide</h3>
-              <div class="form-group">
-                <select class="center-block" id="brandDrag" ng-model = "vehicle_type" ng-options="o as o for o in type_options" > <!--cycle through brand options array-->            
-                </select>
-                <select class="center-block" ng-model = "vehicle_make" ng-options="o as o for o in make_options"> <!--cycle through brand options array-->
-                </select>
-              <div class="form-group">
-                <select class="center-block" ng-model = "vehicle_model" ng-options="o as o for o in model_options"> <!--cycle through trim options array-->
-                </select>
-                <select class="center-block" ng-model = "vehicle_trim" ng-options="o as o for o in trim_options"> <!--cycle through trim options array-->
-                </select>
+              <form>
+                <h3 class="text-center vehicleSlideFormTitle">Pre-Made Background Slide</h3>
+                <div class="form-group">
+                  <select class="center-block form-control selectBGDropdown" ng-model = "premade_vehicle_make" ng-options="o as o for o in premade_make_options"> <!--cycle through make options array-->
+                  </select>
+                </div>   
+                <h3 class="text-center vehicleSlideFormTitle">Custom Slide</h3>
+                <div class="form-group">
+                  <select class="center-block" id="brandDrag" ng-model = "vehicle_type" ng-options="o as o for o in type_options" > <!--cycle through brand options array-->            
+                  </select>
+                  <select class="center-block" ng-model = "vehicle_make" ng-options="o as o for o in make_options"> <!--cycle through brand options array-->
+                  </select>
+                </div>     
+                <div class="form-group">
+                  <select class="center-block" ng-model = "vehicle_model" ng-options="o as o for o in model_options"> <!--cycle through trim options array-->
+                  </select>
+                  <select class="center-block" ng-model = "vehicle_trim" ng-options="o as o for o in trim_options"> <!--cycle through trim options array-->
+                  </select>
+                </div>                 
+              </form>
+            </div><!-- vehicle-slide-create -->
+          <div class="vehicle-slide-create">
+            <div class="text-center center-block" id="trash" data-toggle="popover" data-content="Drag items here to remove them" data-trigger="hover">
+                <i class="fa fa-trash fa-5x"></i>
               </div>
-            </div>         
-            </form>
-          </div>
+            </div><!-- vehicle-slide-create -->
+                            
         </div> <!-- col-md-2 -->
         <div class="col-md-8">
-          <div id="large-hero">                                     
+          <div id="large-hero">                                                  
                 <div ng-if="vehicle_type == 'Car'">
                   <div class="draggableDiv" ng-repeat="vehicleselection in vehicleselections[0].all_gm_cars">                   
                       <img class="draggableImg" ng-src="{{ vehicleselection.image1 }}"/>
@@ -81,7 +87,7 @@
                   </div> <!--Display Buick--> 
                 </div><!--Vehicle_Make dropdown show/hide -->       
 
-                <div ng-if="premade_vehicle_make == 'Chevrolet Cruze'">
+                <div ng-if="premade_vehicle_make == 'Cruze'">
                   <div ng-repeat="vehicleselection in vehicleselections[1].chevrolet_pre_made_bg">
                     <img ng-src="{{ vehicleselection.cruzechvimage }}"/>
                   </div> <!--Display Chev--> 
@@ -91,7 +97,22 @@
                     <img ng-src="{{ vehicleselection.malibuchvimage }}"/>
                   </div> <!--Display Chev--> 
                 </div><!--Vehicle_Make_Premade dropdown show/hide -->
-                <div ng-if="premade_vehicle_make == 'GMC Yukon XL'">
+                <div ng-if="premade_vehicle_make == 'Colorado Crew Cab'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].chevrolet_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.coloradochvimage }}"/>
+                  </div> <!--Display Chev--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_vehicle_make == 'Silverado 1500 Crew Cab'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].chevrolet_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.sil1500chvimage }}"/>
+                  </div> <!--Display Chev--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_vehicle_make == 'Silverado 2500 Crew Cab'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].chevrolet_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.sil2500chvimage }}"/>
+                  </div> <!--Display Chev--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_vehicle_make == 'Yukon XL'">
                   <div ng-repeat="vehicleselection in vehicleselections[1].gmc_pre_made_bg">
                     <img ng-src="{{ vehicleselection.gmcimg }}"/>
                   </div> <!--Display GMC--> 
@@ -101,7 +122,7 @@
                     <img ng-src="{{ vehicleselection.acadiagmcimg }}"/>
                   </div> <!--Display GMC--> 
                 </div><!--Vehicle_Make_Premade dropdown show/hide -->    
-                <div ng-if="premade_vehicle_make == 'Buick Envision'">
+                <div ng-if="premade_vehicle_make == 'Envision'">
                   <div ng-repeat="vehicleselection in vehicleselections[1].buick_pre_made_bg">
                     <img ng-src="{{ vehicleselection.buickimg }}"/>
                   </div> <!--Display Buick--> 
@@ -111,6 +132,21 @@
                     <img ng-src="{{ vehicleselection.encorebuickimg }}"/>
                   </div> <!--Display Buick--> 
                 </div><!--Vehicle_Make_Premade dropdown show/hide --> 
+                <div ng-if="premade_vehicle_make == 'Enclave'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].buick_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.enclaveimg }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_vehicle_make == 'Cascada'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].buick_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.cascadaimg }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
+                <div ng-if="premade_vehicle_make == 'Regal'">
+                  <div ng-repeat="vehicleselection in vehicleselections[1].buick_pre_made_bg">
+                    <img ng-src="{{ vehicleselection.regalimg }}"/>
+                  </div> <!--Display Buick--> 
+                </div><!--Vehicle_Make_Premade dropdown show/hide -->
                 <div ng-if="premade_vehicle_make == 'Terrain'">
                   <div ng-repeat="vehicleselection in vehicleselections[1].gmc_pre_made_bg">
                     <img ng-src="{{ vehicleselection.terraingmcimg }}"/>
@@ -132,52 +168,62 @@
                 <div id="24textDrag"></div>
                 <div id="14textDrag"></div>
                 <div id="12textDrag"></div> 
-                <div class="dragBoxClass" id="createdBoxDrag"></div>   <!--Divs to hold draggable input boxes-->
+                  <div class="dragBoxClass" id="createdBoxDrag" >
+                    <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                  </div>   <!--Divs to hold draggable input boxes-->               
+                  <div class="dragBoxClass" id="createdSecBoxDrag">
+                    <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                    <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                  </div>   <!--Div to hold second box drag-->
                 <mathbox-template-directive>
                 </mathbox-template-directive>
                 <lease-text-directive>
                 </lease-text-directive> <!-- Display lease template -->
-          </div> <!-- large-hero -->    
-            
-        </div>
+          </div> <!-- large-hero -->                
+        </div> <!-- col-md-8 -->
         <div class="col-md-2 text-size-buttons">
-          <div class="vehicle-slide-create ">
+          <div class="vehicle-slide-create">
             <h4 class="vehicle-slide-create-txt text-center">Input Text</h4>            
-            <input type="button"  ng-click="show60options=true" id="addTextBoxButton60" value="60px">
+            <input type="button"  class="btn btn-default"ng-click="show60options=true" id="addTextBoxButton60" value="60px">
             <div  ng-model="color" ng-show="show60options">
               <input id="60pxTxt" type="text" font-color="color">
             </div>     
             <select id="selectColor60px" ng-show="show60options" ng-model="selectedColor">
               <option value="">--Select Color--</option>
-              <option value="#000000">Black</option>
+              <option value="#f1f1f1">Black</option>
               <option value="#ffffff">White</option>
               <option value="#123456">Dark Blue</option>
             </select>
-          <input type="button" ng-click="show36options=true" id="addTextBoxButton36" value="36px">
+          <input type="button" class="btn btn-default" ng-click="show36options=true" id="addTextBoxButton36" value="36px">
             <select id="selectColor36px" ng-show="show36options">
               <option value="">--Select Color--</option>
-              <option value="#000000">Black</option>
+              <option value="#f1f1f1">Black</option>
               <option value="#ffffff">White</option>
               <option value="#123456">Dark Blue</option>
             </select>   
-          <input type="button" ng-click="show24options=true" id="addTextBoxButton24" value="24px">
+          <input type="button" class="btn btn-default"ng-click="show24options=true" id="addTextBoxButton24" value="24px">
             <select id="selectColor24px" ng-show="show24options">
               <option value="">--Select Color--</option>
-              <option value="#000000">Black</option>
+              <option value="#f1f1f1">Black</option>
               <option value="#ffffff">White</option>
               <option value="#123456">Dark Blue</option>
             </select> 
-          <input type="button" ng-click="show14options=true" id="addTextBoxButton14" value="14px">
+          <input type="button" class="btn btn-default" ng-click="show14options=true" id="addTextBoxButton14" value="14px">
             <select id="selectColor14px" ng-show="show14options">
               <option value="">--Select Color--</option>
-              <option value="#000000">Black</option>
+              <option value="#f1f1f1">Black</option>
               <option value="#ffffff">White</option>
               <option value="#123456">Dark Blue</option>
             </select> 
-          <input type="button" ng-click="show12options=true" id="addTextBoxButton12" value="12px">
+          <input type="button" class="btn btn-default" ng-click="show12options=true" id="addTextBoxButton12" value="12px">
             <select id="selectColor12px" ng-show="show12options">
               <option>--Select Color--</option>
-              <option value="#000000">Black</option>
+              <option value="#f1f1f1">Black</option>
               <option value="#ffffff">White</option>
               <option value="#123456">Dark Blue</option>
             </select> 
@@ -185,26 +231,35 @@
             <form>
             <h4 class="vehicle-slide-create-txt text-center">Create Box</h4>
             <div class="form-group">
-              <input type="button" id="addBoxButton" value="Create Box">
-              <select id="selectBoxColor">
+              <div class="row-fluid">
+                <div class="offset4 text-center">
+                  <button class="btn btn-default" id="addBoxButton" value="Create Box">Create Box</button>
+                  <button class="btn btn-default" id="addBoxButton1" value="Create Box">Create Box 2</button>               
+                </div> <!-- offset4-->  
+              </div> <!-- row-fluid-->                         
+              <select class="form-control selectBoxColor">
                 <option value="">--Select BG Color--</option>
-                <option value="#000000">Black</option>
+                <option value="#f1f1f1">Black</option>
                 <option value="#ffffff">White</option>
                 <option value="#123456">Dark Blue</option>
-                <option value="">--Opacity--</option>
-                <option value="rgba(0,0,0,0.25)">25%</option>
-                <option value="rgba(0,0,0,0.50">50%</option>
-                <option value="rgba(0,0,0,0.75">75%</option>
               </select>
+              <div class="selectBoxColor slider" data-wjs-element="addBoxId"></div>  
+              <select class="form-control selectBoxColor1">
+                <option value="">--Select Second BG Color--</option>
+                <option value="#f1f1f1">Black</option>
+                <option value="#ffffff">White</option>
+                <option value="#123456">Dark Blue</option>
+              </select>
+              <div class="selectBoxColor1 slider" data-wjs-element="addSecondBoxId"></div>                
               <div class="checkbox showBorderCheckClass">
                 <label>
                 <input type="checkbox" id="showBorderCheckBox"> Show Textbox Borders
               </label>
               </div>             
-            </div>
+            </div> <!-- form-group -->
               <div ng-controller = "ImageUploadController">  
                   <h4 class="vehicle-slide-create-txt text-center">Upload Image</h4>
-                  <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" multiple />
+                  <input type='file' id="uploadImage" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" multiple />
                   <div class="dragUploadedImgClass">
                     <div ng-repeat="step in stepsModel">
                       <img class="upoadedImg" resizable ng-src="{{step}}"/>
@@ -217,62 +272,71 @@
       </div> <!-- row -->
   </div> <!-- Main Container -->
 </div><!-- MainController-->
+
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        <button class="showSpecialDiv btn btn-primary" id="showLeaseSpecialButton">Create Lease Special</button>
-        <div class="leaseSpecialCreator">
-            <lease-input-directive>
-            </lease-input-directive>
-            <h4>Font-Size</h4>
-                 <div id="controls">
-                  <a href="#" class="fontAdjustClass" id="small">A</a>
-                  <a href="#" class="fontAdjustClass" id="medium" class="selected">A</a>
-                  <a href="#" class="fontAdjustClass" id="large">A</a>
-                </div>
-            <div class="leaseFontColor">
-              <select id="leaseFontColorSelect">
-                <option value="#333">Font Color</option>
-                <option value="#333">Gray</option>
-                <option value="#000">Black</option>
-                <option value="#fff">White</option>
-              </select>
-            </div>
-            <button id="showLeaseSpecialonHero" class="btn btn-warning">Display Lease Special</button>
-          </div> <!--leaseSpecialCreator-->
-      </div><!-- col-md-4 -->
-      <div class="col-md-4">
-        <button class="showMathboxSpecialDiv btn btn-primary">Create Mathbox Special</button>
-        <div class="mathboxCreator">
-            <mathbox-input-directive>
-            </mathbox-input-directive>
-            <h4>Font-Size</h4>
-                 <div id="controls">
-                  <a href="#" class="fontAdjustClass" id="mathboxSmall">A</a>
-                  <a href="#" class="fontAdjustClass" id="mathboxMedium" class="selected">A</a>
-                  <a href="#" class="fontAdjustClass" id="mathboxLarge">A</a>
-                </div>
-            <div class="leaseFontColor">
-              <select id="MathboxFontColorSelect">
-                <option value="#333">Font Color</option>
-                <option value="#333">Gray</option>
-                <option value="#000">Black</option>
-                <option value="#fff">White</option>
-              </select>
-            </div>
-            <button id="showMathboxSpecialonHero" class="btn btn-warning">Display Mathbox Special</button>
-          </div> <!--leaseSpecialCreator-->
-      </div> <!-- col-md-4 -->
-      <div class="col-md-4">
-        <div class="text-center saveCanvasClass">
-          <h4 class="text-center" id="saveCanvas">Save/Download Slide</h4>
-            <button class="btn btn-success" id="btn-Preview-Image" type="button" value="Save">Save</button>
-            <a class="btn btn-danger" id="btn-Convert-Html2Image" href="#">Download</a> <!--Save/Download Form -->
+  <div class="row">
+    <div class="col-md-4">
+      <button class="showSpecialDiv center-block btn btn-primary" id="showLeaseSpecialButton">Create Lease Special</button>
+      <div class="leaseSpecialCreator text-center">
+        <lease-input-directive>
+        </lease-input-directive>
+        <h4>Font-Size</h4>
+        <div class="center-block" id="controls">
+          <a href="#" class="fontAdjustClass" id="small">A</a>
+          <a href="#" class="fontAdjustClass" id="medium" class="selected">A</a>
+          <a href="#" class="fontAdjustClass" id="large">A</a>
         </div>
-        
-      </div><!-- col-md-4 -->
-    </div> <!-- row -->
-  </div> <!-- container-fluid -->
+        <div class="leaseFontColor">
+          <select id="leaseFontColorSelect">
+            <option value="#333">Font Color</option>
+            <option value="#333">Gray</option>
+            <option value="#000">Black</option>
+            <option value="#fff">White</option>
+          </select>
+        </div>
+        <button id="showLeaseSpecialonHero" class="btn btn-warning">Display Lease Special</button>
+      </div>
+      <!--leaseSpecialCreator-->
+    </div>
+    <!-- col-md-4 -->
+    <div class="col-md-4">
+      <button class="showMathboxSpecialDiv center-block btn btn-primary">Create Mathbox Special</button>
+      <div class="mathboxCreator text-center">
+        <mathbox-input-directive>
+        </mathbox-input-directive>
+        <h4>Font-Size</h4>
+        <div class="center-block" id="controls">
+          <a href="#" class="fontAdjustClass" id="mathboxSmall">A</a>
+          <a href="#" class="fontAdjustClass" id="mathboxMedium" class="selected">A</a>
+          <a href="#" class="fontAdjustClass" id="mathboxLarge">A</a>
+        </div>
+        <div class="leaseFontColor">
+          <select id="MathboxFontColorSelect">
+            <option value="#333">Font Color</option>
+            <option value="#333">Gray</option>
+            <option value="#000">Black</option>
+            <option value="#fff">White</option>
+          </select>
+        </div>
+        <button id="showMathboxSpecialonHero" class="btn btn-warning">Display Mathbox Special</button>
+      </div>
+      <!--leaseSpecialCreator-->
+    </div>
+    <!-- col-md-4 -->
+    <div class="col-md-4">
+      <div class="text-center saveCanvasClass">
+        <h4 class="text-center" id="saveCanvas">Save/Download Slide</h4>
+        <button class="btn btn-success" id="btn-Preview-Image" type="button" value="Save">Save</button>
+        <a class="btn btn-danger" id="btn-convert-image" href="#">Download</a>
+        <!--Save/Download Form -->
+      </div>
+    </div>
+    <!-- col-md-4 -->
+  </div>
+  <!-- row -->
+</div>
+<!-- container-fluid -->
+
 
    <div id="previewImage"></div> <!--Display Hidden-->
     <!-- Jquery --> 

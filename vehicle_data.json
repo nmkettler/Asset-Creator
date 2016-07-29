@@ -31,7 +31,10 @@
 	{
 		"chevrolet_pre_made_bg" :[
 			{"abbreviation" : "CHVBG", "cruzechvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/CruzeBG.jpg"},
-			{"abbreviation" : "CHVBG", "malibuchvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/16Malibu.jpg"}
+			{"abbreviation" : "CHVBG", "malibuchvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/16Malibu.jpg"},
+			{"abbreviation" : "CHVBG", "coloradochvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/ColoradoCrewCab.jpg"},
+			{"abbreviation" : "CHVBG", "sil1500chvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/Silverado1500CrewCab.jpg"},
+			{"abbreviation" : "CHVBG", "sil2500chvimage" : "css/images/Vehicle_Images/Vehicle_Premade_BG/Silverado2500CrewCab.jpg"}
 		],
 		"gmc_pre_made_bg" :[
 			{"abbreviation" : "GMC", "gmcimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/YukonXLDenaliBG.jpg"},
@@ -42,7 +45,10 @@
 		],
 		"buick_pre_made_bg" :[
 			{"abbreviation" : "BUI", "buickimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/BuickEnvisionBG.jpg"},
-			{"abbreviation" : "BUI", "encorebuickimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/16Encore.jpg"}
+			{"abbreviation" : "BUI", "encorebuickimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/16Encore.jpg"},
+			{"abbreviation" : "BUI", "enclaveimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/Enclave2016.jpg"},
+			{"abbreviation" : "BUI", "cascadaimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/Cascada.jpg"},
+			{"abbreviation" : "BUI", "regalimg" : "css/images/Vehicle_Images/Vehicle_Premade_BG/Regal2016.jpg"}			
 		]
 	}
 ]

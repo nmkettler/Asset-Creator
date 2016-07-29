@@ -20,11 +20,18 @@ body{
 	padding: 30px 0 30px 0;
 	width: 100%;
 }
+
+select {
+  text-align: center;
+  text-align-last: center;
+  /* webkit*/
+}
+
 /* Hero Slide */
 
 #large-hero{
 	background-color: #ffffff;
-	width: 1280px;
+    width: 1280px;
     height: 525px;
     position: relative;
     
@@ -44,6 +51,7 @@ body{
 
 }
 
+
 .vehicle-slide-create{
 	background: #123456;
 	border-radius: 5px;
@@ -51,13 +59,17 @@ body{
 	margin: 10px;
 }
 
-.vehicle-slide-create select{
-	margin-bottom: 16px; 
-}
+.vehicle-slide-create select{ margin-bottom: 16px; }
+.vehicle-slide-create input{ margin-bottom: 5px; }
 
 .vehicleSlideFormTitle{
 	color:#ffffff;
 }
+
+.offset4 button{
+  margin: 5px;
+}
+
 
 /*Draggable Images */
 
@@ -78,17 +90,37 @@ body{
 
 #addTextBoxButton60{font-size: 60px;} #addTextBoxButton36{font-size: 36px;} #addTextBoxButton24{font-size: 24px;} #addTextBoxButton14{font-size: 14px;}#addTextBoxButton12{font-size: 12px;}
 
-#addBoxId{
+/*------------Create Box-----------*/
+
+.dragBoxClass{
+  width: 100px;
+  height: 100px;
+}
+
+.selectBoxColor, .selectBoxColor1{
+  display: none;
+}
+
+#nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+#negrip, #nwgrip { right: -5px; top: 15px; }
+#segrip, #swgrip { right: -5px; bottom: -25px; }
+
+#addBoxId, #addSecondBoxId{
 	position: relative;
     background: black;
-   width: 100%; height: 100%; padding: 0.5em;
+   width: 100%; height: 100%; padding: 1em;
 }
 
 .addBoxClass1{
-	width:100px;
-	height:100px;
 	background-color: black;
 }
+
+.slider { width: 200px; background-color:black; margin-bottom: 10px;}
 
 
 #addTextBoxInputId60, #addTextBoxInputId36, #addTextBoxInputId24, #addTextBoxInputId14, #addTextBoxInputId12{
@@ -102,16 +134,23 @@ body{
 
 }
 
-.vehicle-slide-create-txt{
-	color:white;
-}
+.vehicle-slide-create-txt{ color:white; }
+
+#uploadImage{ color:white; }
+
 /*-----------------Lease Template -----------------*/
+
 .leaseSpecialCreator{
 	display: none;
 }
 
-.showSpecialDiv, .showMathboxSpecialDiv{ font-size:15px; margin: 10px 0px; background: #333; }
-.showSpecialDiv:hover, .showMathboxSpecialDiv:hover { font-size:15px; margin: 10px 0px; background: #123456; }
+.center-block {
+  display: table;
+  margin: 0 auto;
+}
+
+.showSpecialDiv, .showMathboxSpecialDiv{ font-size:15px; margin-bottom: 10px; margin-top: 20px;  background: #333; }
+.showSpecialDiv:hover, .showMathboxSpecialDiv:hover { font-size:15px; margin-top: 10px background: #123456; }
 
 #showLeaseSpecialonHero, #showMathboxSpecialonHero{ font-size:15px; margin: 10px 0px; background: #123456; }
 #showLeaseSpecialonHero:hover, #showMathboxSpecialonHero:hover { font-size:15px; margin: 10px 0px; background: #333; }
@@ -154,23 +193,13 @@ margin-bottom:0px;
 }
 
 /*--------Special Mathbox Template-------------------*/ 
-.mathboxCreator{
-	display: none;
-}
-.mathDiscount{
-	display: none;
-}
-.mathDiscount h1{
-  margin:0em;
-}
+.mathboxCreator{ display: none; }
+.mathDiscount{ display: none; }
+.mathDiscount h1{ margin:0em; }
 
 .mathfirstsec{
   float:left;
   padding-right: 30px; 
-}
-
-.mathsecondSec{
-  
 }
 
 .mathNumber h1{
@@ -183,12 +212,8 @@ font-size: 100px;
 padding:0;
 margin-bottom:0px;
 }
-.txtNextToMathSaleTxt{
-  font-size:40px;
-}
-.mathSaleText{
-  padding-top:10px;
-}
+.txtNextToMathSaleTxt{ font-size:40px; }
+.mathSaleText{ padding-top:10px; }
 
 
 
@@ -199,7 +224,6 @@ margin-bottom:0px;
               transition:.25s ease-out;
               text-align:center;
               padding:2px;
-              margin: 5px 0px;
           }
 
 
@@ -230,9 +254,7 @@ a.selected  {  background:#000;
 
 /* Lease Font Color */
 
-.leaseFontColor{
-	margin: 10px 0;
-}
+.leaseFontColor{ margin: 10px 0; }
 
 /*-------------------Image Upload-----------------*/
 
@@ -243,21 +265,22 @@ a.selected  {  background:#000;
 
 }
 
-.uploader{
-    clear:both;
-}
+.uploader{ clear:both; }
 
 /*-----------------------Download Hero------------------ */
 
-#previewImage{
-	display: none;
-}
+#previewImage{ display: none; }
 
-.saveCanvasClass{
-	margin-bottom: 5px;
-}
+.saveCanvasClass{ margin-bottom: 5px; }
 
-#saveCanvas{
-	color:#123456;
+#saveCanvas{ color:#123456; }
+
+#trash{
+  width:100px;
+  height: 100px;
+  background-color:#399741;
+  border-radius: 5px;
 }
+#trash i{ padding-top: 15px; }
+.fa-trash{ color: #fbcc0d; }
 

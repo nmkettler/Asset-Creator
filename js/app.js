@@ -9,6 +9,7 @@ window.onload = function(){
 	var fourteencount = 1;
 	var twelvecount = 1;
 	var boxCount = 1;
+	var secondBoxCount = 1;
 
 	document.getElementById('addTextBoxButton60').onclick = function() {
 		var div = document.getElementById("60textDrag");
@@ -82,9 +83,21 @@ window.onload = function(){
 		div.appendChild(document.createElement("br"));
 		div.appendChild(box);
 	}
+	document.getElementById('addBoxButton1').onclick = function() {
+		var div = document.getElementById("createdSecBoxDrag");
+		var box = document.createElement('div');
+
+		box.id="addSecondBoxId";
+		box.className="addSecondBoxClass" + (secondBoxCount++);
+		box.name="addBoxname";
+		div.appendChild(document.createElement("br"));
+		div.appendChild(box);
 	}
 
+
+	}
 $(document).ready(function() {
+
 
 	//Change color of input text from select 
 	$('#selectColor60px').change(function(){
@@ -103,28 +116,62 @@ $(document).ready(function() {
 		$('#addTextBoxInputId12').css('color', $(this).val());
 	});
 
+
 	$(function turnBordersOff(){
 		$('#showBorderCheckBox').click(function(){
     		if (this.checked) {
-        		$('#addTextBoxInputId60, #addTextBoxInputId36, #addTextBoxInputId24, #addTextBoxInputId14, #addTextBoxInputId12').css("border", "none"); 
+        		$('#large-hero div input').css("border", "1px solid black"); 
+    		}else{
+    			$('#large-hero div input').css("border", "none");
     		}
 		}) 
 	});
 
 	$(function createBoxUi(){
-		$('#createdBoxDrag').draggable();
-		$('#createdBoxDrag').resizable({
+
+		$('#createdBoxDrag, #createdSecBoxDrag').draggable();
+		$('#createdBoxDrag, #createdSecBoxDrag').resizable({
 			autoHide: true,
-			handles: 'n, e, s, w, ne, se, sw, nw, all',
+			handles: {
+		        'ne': '#negrip',
+		        'se': '#segrip',
+		        'sw': '#swgrip',
+		        'nw': '#nwgrip'
+		    },
 			containment: "#large-hero",
 			start: function(event, ui){
 				ui.element.css('position', 'absolute');
 			}
 		});
 
-		$('#selectBoxColor').change(function(){
+		$("#addBoxButton").click(function(){
+			$(".selectBoxColor").toggle("slow", function(){
+				//complete
+			});
+		}); 
+		$("#addBoxButton1").click(function(){
+				$(".selectBoxColor1").toggle("slow", function(){
+					//complete
+				});
+			}); 
+
+		$('.selectBoxColor').change(function(){
 			$('.addBoxClass1, .addBoxClass2, .addBoxClass3, .addBoxClass4').css('background', $(this).val());
 		});
+		$('.selectBoxColor1').change(function(){
+			$('.addSecondBoxClass1, .addSecondBoxClass2').css('background', $(this).val());
+		});
+
+		//Change Box Opacity
+		$('.slider').slider({ min: 0, max: 1, step: 0.1, value: 1 })
+                .bind("slidechange", function() {
+                    //get the value of the slider with this call
+                    var o = $(this).slider('value');
+                    //here I am just specifying the element to change with a "made up" attribute (but don't worry, this is in the HTML specs and supported by all browsers).
+                    var e = '#' + $(this).attr('data-wjs-element');
+                    $(e).css('opacity', o)
+                });
+
 	});
 	$(function textUi(){
 		$("#60textDrag, #36textDrag, #24textDrag, #14textDrag, #12textDrag, .leasespecial, .dragUploadedImgClass, .mathDiscount").draggable();
@@ -235,8 +282,8 @@ $(document).ready(function() {
 	$(function dnldDiv() {
     //Append to a canvas in order to download div as an img
 
-    var element = $("#large-hero"); // global variable
-    var getCanvas; // global variable
+    var element = $("#large-hero"); 
+    var getCanvas; 
 
     $("#btn-Preview-Image").on('click', function() {
     	alert('Hero Slide Saved!');
@@ -249,33 +296,21 @@ $(document).ready(function() {
     });
 
     //Download to image
-    $("#btn-Convert-Html2Image").on('click', function() {
+    $("#btn-convert-image").on('click', function() {
       var imgageData = getCanvas.toDataURL("image/png");
       // Now browser starts downloading it instead of just showing it
       var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-      $("#btn-Convert-Html2Image").attr("download", "Hero_Slide_Image.png").attr("href", newData);
+      $("#btn-convert-image").attr("download", "Hero_Slide_Image.png").attr("href", newData);
     });
   });
 
 });
 
-/*#mathMSRPText, #mathDealerDiscText {
-  padding-left: 30px;
-}
+$(function removeDivs(){
+	$('#trash').droppable({
+        drop: function(event, ui) {
+            ui.draggable.remove();
+        }
+    });
+});
 
-.mathNumber h1{
-  position:relative;
-  display:block;
-  float:left;
-}
-#mathNumberId{ 
-font-size: 100px; 
-padding:0;
-margin-bottom:0px;
-}
-.txtNextToMathSaleTxt{
-  font-size:40px;
-}
-.mathSaleText{
-  padding-top:10px;
-}*/

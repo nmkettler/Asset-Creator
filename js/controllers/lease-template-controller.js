@@ -53,7 +53,7 @@ app.directive('leaseInputDirective', function() {
     restrict: 'E',
      replace: true, // Replace with the template below
 	    transclude: true, // we want to insert custom content inside the directive
-    template: '<div>\
+    template: '<div class="center-block">\
     <form ng-controller="LeaseTemplateController">\
           <div class="form-group" ng-repeat="cc in percent_id">\
             <div class="input-group">\

@@ -16,9 +16,9 @@ var app = angular.module('assetApp');
 	$scope.model_options = ['Select Model', 'Silverado', 'Silverado 2500','Buick','GMC','Cadillac'];
 	$scope.trim_options = ['Select Trim', 'Crew Cab', 'Long Cab','Buick','GMC','Cadillac'];
 
-	$scope.premade_make_options = ['Select Background', '------Chevrolet------', 'Chevrolet Cruze', 'Malibu',
-						'------Buick------', 'Encore','Buick Envision',
-						'------GMC------','GMC Yukon XL','Terrain', 'Canyon', 'Sierra 1500', 'Acadia'
+	$scope.premade_make_options = ['Select Background', '-----------------Chevrolet------------------', 'Cruze', 'Malibu', 'Colorado Crew Cab', 'Silverado 1500 Crew Cab', 'Silverado 2500 Crew Cab',
+						'------------------Buick------------------', 'Cascada', 'Encore', 'Enclave', 'Envision', 'Regal',
+						'------------------GMC------------------','Yukon XL','Terrain', 'Canyon', 'Sierra 1500', 'Acadia'
 						];
 	
 
@@ -32,7 +32,19 @@ var app = angular.module('assetApp');
 
 }]);
 
-			  	
+	//Tooltip for trash	
+
+	app.directive('toggle', function(){
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs){
+				if(attrs.toggle=="popover"){
+					$(element).popover();
+				}
+			}
+		};
+	})
+
 
 	/*Font Colors */
 
