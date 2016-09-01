@@ -129,7 +129,7 @@ $(document).ready(function() {
 
 	$(function createBoxUi(){
 
-		$('#createdBoxDrag, #createdSecBoxDrag').draggable();
+		$('#createdBoxDrag, #createdSecBoxDrag, #dragSlideCreate').draggable();
 		$('#createdBoxDrag, #createdSecBoxDrag').resizable({
 			autoHide: true,
 			handles: {
